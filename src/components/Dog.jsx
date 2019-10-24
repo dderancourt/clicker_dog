@@ -5,7 +5,7 @@ class Dog extends React.Component {
     super(props);
     this.state = {
       love: 0,
-      lovePerSec: 0
+      lovePerSec: this.props.incomingLove
     };
   }
 
@@ -29,7 +29,7 @@ class Dog extends React.Component {
     return (
       <div className="dog">
         <div>you have {this.state.love} love</div>
-        <div>you generate {this.props.lovePerSec} love per second</div>
+        <div>you generate {this.props.incomingLove} love per second</div>
         <img
           src="clickerDog.png"
           alt="Dog"
