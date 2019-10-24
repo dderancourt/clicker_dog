@@ -7,14 +7,16 @@ import "./game.scss";
 class Game extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      lovePerSecond: 1
+    };
   }
 
   render() {
     return (
       <div id="game">
         <Shop />
-        <Dog />
+        <Dog incomingLove={this.state.lovePerSecond} />
         <Inventory />
       </div>
     );

@@ -9,6 +9,17 @@ class Dog extends React.Component {
     };
   }
 
+  componentDidMount() {
+    setInterval(() => {
+      this.incomingLove();
+    }, 1000);
+  }
+
+  incomingLove() {
+    let addLove = this.state.love + this.props.incomingLove;
+    this.setState({ love: addLove });
+  }
+
   clicker() {
     let newLove = this.state.love + 1;
     this.setState({ love: newLove });
@@ -18,7 +29,7 @@ class Dog extends React.Component {
     return (
       <div>
         <div>you have {this.state.love} love</div>
-        <div>you generate {this.state.lovePerSec} love per second</div>
+        <div>you generate {this.props.lovePerSec} love per second</div>
         <img
           src="clickerDog.png"
           alt="Dog"
