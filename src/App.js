@@ -1,6 +1,7 @@
 import React from 'react';
 import TopBar from './components/TopBar';
 import Game from "./components/Game";
+import Footer from './components/Footer';
 import "./App.css";
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
     <div className="App">
       <TopBar />
       <Game />
+      <Footer />
     </div>
   );
 }
