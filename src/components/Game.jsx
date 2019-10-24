@@ -8,43 +8,66 @@ class Game extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      love: 0,
       lovePerSecond: 0,
       inventory: {
         food: 0,
         toy: 0
       }
     };
-    this.callbackFood = this.callbackFood.bind(this);
+    this.callbackFoodShop = this.callbackFoodShop.bind(this);
+    this.callbackToyShop = this.callbackToyShop.bind(this);
+    this.callBackDataDog = this.callBackDataDog.bind(this);
   }
 
-  callbackFood(data) {
-    this.setState({
-      inventory: {
-        food: data.food,
-        toy: data.toy
-      }
-    });
+  callBackDataDog(dataDog) {
+    this.setState({ love: dataDog });
+  }
+
+  callbackFoodShop(dataFood) {
+    this.setState({ inventory: { food: dataFood } });
+  }
+
+  callbackToyShop(dataToy) {
+    this.setState({ inventory: { toy: dataToy } });
+  }
+
+  getLove() {
+    this.getLovePerSec();
+    let newLove = this.state.love + this.state.lovePerSecond;
+    this.setState({ love: newLove });
   }
 
   getLovePerSec() {
-    let newLovePerSec =
-      this.state.inventory.food * 1 + this.state.inventory.toy * 10;
+    let totalFood = this.state.food * 1;
+    let totalToy = this.state.toy * 10;
+    let newLovePerSec = totalFood + totalToy;
     this.setState({
       lovePerSecond: newLovePerSec
     });
   }
 
   componentDidMount() {
-    setInterval(() => {
+    /*setInterval(() => {
       this.getLovePerSec();
-    }, 1);
+    }, 100);*/
+    setInterval(() => {
+      this.getLove();
+    }, 1000);
   }
 
   render() {
     return (
       <div id="game">
-        <Shop callbackFood={this.callbackFood} />
-        <Dog incomingLove={this.state.lovePerSecond} />
+        <Shop
+          callbackFoodShop={this.callbackFoodShop}
+          callbackToyShop={this.callbackToyShop}
+        />
+        <Dog
+          lovePerSecond={this.state.lovePerSecond}
+          love={this.state.love}
+          callBackDataDog={this.callBackDataDog}
+        />
         <Inventory inventory={this.state.inventory} />
       </div>
     );
@@ -52,9 +75,3 @@ class Game extends React.Component {
 }
 
 export default Game;
-
-/*<button
-  onClick={event => {
-    this.addItemInInventory();
-  }}
-></button>;*/

@@ -6,7 +6,7 @@ function Footer() {
     <div className="footer">
       <p>
         By D.Derancourt and T.Boschetti - Made with{" "}
-        <img src="heartIcon.png"></img> by{" "}
+        <img src="heartIcon.png" alt="Heart"></img> by{" "}
         <a href="https://www.wildcodeschool.com">Wild Code School</a> !
       </p>
     </div>

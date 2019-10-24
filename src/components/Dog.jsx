@@ -4,20 +4,13 @@ class Dog extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      love: 0,
-      lovePerSec: this.props.incomingLove
+      love: 1
     };
   }
 
-  componentDidMount() {
-    setInterval(() => {
-      this.incomingLove();
-    }, 1000);
-  }
-
-  incomingLove() {
-    let addLove = this.state.love + this.props.incomingLove;
-    this.setState({ love: addLove });
+  sendDataToGame() {
+    let dataDog = this.state.love;
+    this.props.callBackDataDog(dataDog);
   }
 
   clicker() {
@@ -28,14 +21,15 @@ class Dog extends React.Component {
   render() {
     return (
       <div className="dog">
-        <div>you have {this.state.love} love</div>
-        <div>you generate {this.props.incomingLove} love per second</div>
+        <div>you have {this.props.love} loves</div>
+        <div>you generate {this.props.lovePerSecond} loves per second</div>
         <img
           src="clickerDog.png"
           alt="Dog"
           onClick={() => {
             {
               this.clicker();
+              this.sendDataToGame();
             }
           }}
         />
