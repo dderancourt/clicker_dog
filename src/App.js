@@ -1,11 +1,13 @@
 import React from 'react';
 import TopBar from './components/TopBar';
-import './App.css';
+import Game from "./components/Game";
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
       <TopBar />
+      <Game />
     </div>
   );
 }
