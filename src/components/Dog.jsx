@@ -27,7 +27,7 @@ class Dog extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="dog">
         <div>you have {this.state.love} love</div>
         <div>you generate {this.props.lovePerSec} love per second</div>
         <img
