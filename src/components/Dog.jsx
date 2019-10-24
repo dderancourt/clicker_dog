@@ -9,7 +9,7 @@ class Dog extends React.Component {
   render() {
     return (
       <div>
-        <img src="" alt="Dog" />
+        <img src="clickerDog.png" alt="Dog" />
       </div>
     );
   }

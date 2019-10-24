@@ -2,6 +2,7 @@ import React from "react";
 import Shop from "./Shop";
 import Inventory from "./Inventory";
 import Dog from "./Dog";
+import "./game.scss";
 
 class Game extends React.Component {
   constructor(props) {
@@ -11,10 +12,10 @@ class Game extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id="game">
         <Shop />
-        <Inventory />
         <Dog />
+        <Inventory />
       </div>
     );
   }
