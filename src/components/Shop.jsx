@@ -11,18 +11,22 @@ class Shop extends React.Component {
     };
   }
 
+  sendData() {
+    let data = this.state.inventory;
+    this.props.callbackFood(data);
+  }
+
   addFood() {
     let newFood = this.state.inventory.food + 1;
     this.setState({
       inventory: { food: newFood }
     });
-    this.props.callbackDataInventory(newFood);
   }
 
   addToy() {
     let newToy = this.state.inventory.toy + 1;
     this.setState({
-      inventory: { food: newToy }
+      inventory: { toy: newToy }
     });
   }
 
@@ -33,6 +37,7 @@ class Shop extends React.Component {
           <button
             onClick={() => {
               this.addFood();
+              this.sendData();
             }}
           >
             Buy food
@@ -42,6 +47,7 @@ class Shop extends React.Component {
           <button
             onClick={() => {
               this.addToy();
+              this.sendData();
             }}
           >
             Buy toy

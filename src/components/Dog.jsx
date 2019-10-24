@@ -33,7 +33,7 @@ class Dog extends React.Component {
         <img
           src="clickerDog.png"
           alt="Dog"
-          onClick={event => {
+          onClick={() => {
             {
               this.clicker();
             }
