@@ -1,13 +1,21 @@
 import React from "react";
+import Food from "./Inventory/Food";
 
 class Inventory extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      numberFood: 1
+    };
   }
 
   render() {
-    return <div>Inventory</div>;
+    return (
+      <div>
+        <h2>Inventory</h2>
+        <Food numberFood={this.state.numberFood} />
+      </div>
+    );
   }
 }
 
