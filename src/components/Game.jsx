@@ -9,23 +9,24 @@ class Game extends React.Component {
     super(props);
     this.state = {
       lovePerSecond: 0,
-      Inventory: {
-        food: 0,
-        toys: 0
+      inventory: {
+        food: 0
       }
     };
+    this.callbackDataInventory = this.callbackDataInventory.bind(this);
   }
 
-  addItemInInventory() {
-    let newFood = this.state.Inventory.food + 1;
+  callbackDataInventory(newFood) {
     this.setState({
-      Inventory: { food: newFood }
+      inventory: {
+        food: newFood
+      }
     });
   }
 
   getLovePerSec() {
     let newLovePerSec = 0;
-    newLovePerSec = this.state.Inventory.food * 1;
+    newLovePerSec = this.state.inventory.food * 1;
     this.setState({
       lovePerSecond: newLovePerSec
     });
@@ -40,17 +41,18 @@ class Game extends React.Component {
   render() {
     return (
       <div id="game">
-        <button
-          onClick={event => {
-            this.addItemInInventory();
-          }}
-        ></button>
-        <Shop />
+        <Shop callbackDataInventory={this.callbackDataInventory} />
         <Dog incomingLove={this.state.lovePerSecond} />
-        <Inventory Inventory={this.state.Inventory} />
+        <Inventory inventory={this.state.inventory} />
       </div>
     );
   }
 }
 
 export default Game;
+
+/*<button
+  onClick={event => {
+    this.addItemInInventory();
+  }}
+></button>;*/
