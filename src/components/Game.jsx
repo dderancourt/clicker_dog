@@ -8,7 +8,8 @@ class Game extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      lovePerSecond: 1
+      lovePerSecond: 1,
+      numberOfFood: 0
     };
   }
 
