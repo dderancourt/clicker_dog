@@ -5,8 +5,24 @@ class Dog extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      canAnimate: false
+      canPlayAudio: true
     };
+  }
+
+  playAudio() {
+    const audio = document.getElementsByClassName("audio")[0];
+    audio.play();
+  }
+
+  onClickFunction() {
+    this.props.getClickFromDog();
+    if (this.state.canPlayAudio) {
+      this.setState({ canPlayAudio: false });
+      setTimeout(() => {
+        this.setState({ canPlayAudio: true });
+      }, 1500);
+      this.playAudio();
+    }
   }
 
   render() {
@@ -18,15 +34,11 @@ class Dog extends React.Component {
           className="dog-pic"
           src="breathingDog.gif"
           alt="Dog"
-          onClick={this.props.getClickFromDog}
-        ></img>
-        <img
-          src="heartIcon.png"
-          alt="Heart"
-          onClick={() => this.setState({ canAnimate: true })}
-          onAnimationEnd={() => this.setState({ canAnimate: false })}
-          className={this.state.canAnimate ? "heart" : "notHeart"}
-        ></img>
+          onClick={() => this.onClickFunction()}
+        />
+        <audio className="audio">
+          <source src="bark.wav"></source>
+        </audio>
       </div>
     );
   }

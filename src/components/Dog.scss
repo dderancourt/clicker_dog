@@ -14,48 +14,4 @@ $background: rgb(243, 214, 187);
   .dog-pic:hover {
     transform: scale(1.1);
   }
-  .heart {
-    width: 30px;
-    -webkit-animation-name: slideOutUp;
-    animation-name: slideOutUp;
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
-  }
-  .notHeart {
-    width: 30px;
-  }
-}
-
-@keyframes fade-in-keyframes {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@-webkit-keyframes slideOutUp {
-  0% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-  100% {
-    visibility: hidden;
-    -webkit-transform: translateY(-100%);
-    transform: translateY(-100%);
-  }
-}
-@keyframes slideOutUp {
-  0% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-  100% {
-    visibility: hidden;
-    -webkit-transform: translateY(-100%);
-    transform: translateY(-100%);
-  }
 }
