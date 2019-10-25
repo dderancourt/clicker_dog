@@ -15,44 +15,42 @@ class Game extends React.Component {
         toy: 0
       }
     };
-    this.callbackFoodShop = this.callbackFoodShop.bind(this);
-    this.callbackToyShop = this.callbackToyShop.bind(this);
-    this.callBackDataDog = this.callBackDataDog.bind(this);
   }
 
-  callBackDataDog(dataDog) {
-    this.setState({ love: dataDog });
-  }
+  getFoodFromShop = () => {
+    this.setState({
+      lovePerSecond: this.state.lovePerSecond + 1,
+      inventory: {
+        ...this.state.inventory,
+        food: this.state.inventory.food + 1
+      }
+    });
+  };
 
-  callbackFoodShop(dataFood) {
-    this.setState({ inventory: { food: dataFood } });
-  }
+  getToyFromShop = () => {
+    this.setState({
+      lovePerSecond: this.state.lovePerSecond + 10,
+      inventory: {
+        ...this.state.inventory,
+        toy: this.state.inventory.toy + 1
+      }
+    });
+  };
 
-  callbackToyShop(dataToy) {
-    this.setState({ inventory: { toy: dataToy } });
-  }
+  getClickFromDog = () => {
+    this.setState({
+      love: this.state.love + 1
+    });
+  };
 
-  getLove() {
-    this.getLovePerSec();
+  incrementLove() {
     let newLove = this.state.love + this.state.lovePerSecond;
     this.setState({ love: newLove });
   }
 
-  getLovePerSec() {
-    let totalFood = this.state.food * 1;
-    let totalToy = this.state.toy * 10;
-    let newLovePerSec = totalFood + totalToy;
-    this.setState({
-      lovePerSecond: newLovePerSec
-    });
-  }
-
   componentDidMount() {
-    /*setInterval(() => {
-      this.getLovePerSec();
-    }, 100);*/
     setInterval(() => {
-      this.getLove();
+      this.incrementLove();
     }, 1000);
   }
 
@@ -60,13 +58,13 @@ class Game extends React.Component {
     return (
       <div id="game">
         <Shop
-          callbackFoodShop={this.callbackFoodShop}
-          callbackToyShop={this.callbackToyShop}
+          getFoodFromShop={this.getFoodFromShop}
+          getToyFromShop={this.getToyFromShop}
         />
         <Dog
-          lovePerSecond={this.state.lovePerSecond}
           love={this.state.love}
-          callBackDataDog={this.callBackDataDog}
+          lovePerSecond={this.state.lovePerSecond}
+          getClickFromDog={this.getClickFromDog}
         />
         <Inventory inventory={this.state.inventory} />
       </div>

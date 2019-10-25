@@ -3,19 +3,6 @@ import React from "react";
 class Dog extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      love: 1
-    };
-  }
-
-  sendDataToGame() {
-    let dataDog = this.state.love;
-    this.props.callBackDataDog(dataDog);
-  }
-
-  clicker() {
-    let newLove = this.state.love + 1;
-    this.setState({ love: newLove });
   }
 
   render() {
@@ -26,12 +13,7 @@ class Dog extends React.Component {
         <img
           src="clickerDog.png"
           alt="Dog"
-          onClick={() => {
-            {
-              this.clicker();
-              this.sendDataToGame();
-            }
-          }}
+          onClick={this.props.getClickFromDog}
         />
       </div>
     );
