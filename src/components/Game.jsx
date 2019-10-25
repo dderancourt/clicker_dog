@@ -85,7 +85,13 @@ class Game extends React.Component {
     this.setState({
       love: this.state.love + 1
     });
+    this.playSoundDog();
   };
+
+  playSoundDog() {
+    const sound = new Audio("bark.wav");
+    audio.play();
+  }
 
   incrementLove() {
     let newLove = this.state.love + this.state.lovePerSecond;
