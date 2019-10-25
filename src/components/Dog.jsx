@@ -1,4 +1,5 @@
 import React from "react";
+import "./Dog.scss";
 
 class Dog extends React.Component {
   constructor(props) {
