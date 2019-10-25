@@ -11,7 +11,7 @@ class Dog extends React.Component {
         <div>you have {this.props.love} loves</div>
         <div>you generate {this.props.lovePerSecond} loves per second</div>
         <img
-          src="clickerDog.png"
+          src="breathingDog.gif"
           alt="Dog"
           onClick={this.props.getClickFromDog}
         />

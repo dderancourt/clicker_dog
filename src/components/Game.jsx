@@ -12,7 +12,11 @@ class Game extends React.Component {
       lovePerSecond: 0,
       inventory: {
         food: 0,
-        toy: 0
+        toy: 0,
+        basket: 0,
+        female_dog: 0,
+        slave_cat: 0,
+        parc: 0
       }
     };
   }
@@ -33,6 +37,46 @@ class Game extends React.Component {
       inventory: {
         ...this.state.inventory,
         toy: this.state.inventory.toy + 1
+      }
+    });
+  };
+
+  getBasketFromShop = () => {
+    this.setState({
+      lovePerSecond: this.state.lovePerSecond + 50,
+      inventory: {
+        ...this.state.inventory,
+        basket: this.state.inventory.basket + 1
+      }
+    });
+  };
+
+  getFemaleDogFromShop = () => {
+    this.setState({
+      lovePerSecond: this.state.lovePerSecond + 100,
+      inventory: {
+        ...this.state.inventory,
+        female_dog: this.state.inventory.female_dog + 1
+      }
+    });
+  };
+
+  getSlaveCatFromShop = () => {
+    this.setState({
+      lovePerSecond: this.state.lovePerSecond + 500,
+      inventory: {
+        ...this.state.inventory,
+        slave_cat: this.state.inventory.slave_cat + 1
+      }
+    });
+  };
+
+  getParcFromShop = () => {
+    this.setState({
+      lovePerSecond: this.state.lovePerSecond + 10000,
+      inventory: {
+        ...this.state.inventory,
+        parc: this.state.inventory.parc + 1
       }
     });
   };
@@ -60,6 +104,10 @@ class Game extends React.Component {
         <Shop
           getFoodFromShop={this.getFoodFromShop}
           getToyFromShop={this.getToyFromShop}
+          getBasketFromShop={this.getBasketFromShop}
+          getFemaleDogFromShop={this.getFemaleDogFromShop}
+          getSlaveCatFromShop={this.getSlaveCatFromShop}
+          getParcFromShop={this.getParcFromShop}
         />
         <Dog
           love={this.state.love}
