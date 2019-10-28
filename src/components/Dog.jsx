@@ -28,7 +28,7 @@ class Dog extends React.Component {
   render() {
     return (
       <div className="dog">
-        <div>you have {this.props.love} loves</div>
+        <div>you have {Math.round(this.props.love)} loves</div>
         <div>you generate {this.props.lovePerSecond} loves per second</div>
         <img
           className="dog-pic"
