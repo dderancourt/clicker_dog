@@ -1,4 +1,5 @@
 import React from "react";
+import "./shop.scss";
 
 class Shop extends React.Component {
   constructor(props) {
@@ -7,7 +8,7 @@ class Shop extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="shop">
         <div id="food">
           <button onClick={this.props.getFoodFromShop}>Buy food</button>
         </div>

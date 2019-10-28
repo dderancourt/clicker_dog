@@ -1,4 +1,4 @@
-$background: rgb(243, 214, 187);
+$background: #f6cd90;
 
 .dog {
   display: flex;
@@ -6,6 +6,7 @@ $background: rgb(243, 214, 187);
   background-color: $background;
   font-size: 25px;
   text-align: center;
+  width: 33%;
   .dog-pic {
     cursor: pointer;
     margin: auto;
