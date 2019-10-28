@@ -1,18 +1,88 @@
 $background: #f6cd90;
 
 .dog {
+  position: relative;
   display: flex;
   flex-direction: column;
   background-color: $background;
   font-size: 25px;
   text-align: center;
   width: 33%;
+  .running-dog {
+    position: absolute;
+    bottom: 0;
+    animation-duration: 6s;
+    animation-name: slidein;
+    animation-iteration-count: infinite;
+    width: 65%;
+    z-index: 1;
+  }
+  .running-dog2 {
+    position: absolute;
+    bottom: 0;
+    animation-duration: 9s;
+    animation-name: slidein2;
+    animation-iteration-count: infinite;
+    width: 65%;
+    z-index: 1;
+  }
+  .running-dog3 {
+    position: absolute;
+    bottom: 0;
+    animation-duration: 12s;
+    animation-name: slidein3;
+    animation-iteration-count: infinite;
+    width: 65%;
+    z-index: 1;
+  }
   .dog-pic {
+    z-index: 5;
+    position: absolute;
+    top: 30%;
+    left: 12%;
+    transform: scale(0.9);
     cursor: pointer;
     margin: auto;
-    width: 55%;
+    width: 70%;
   }
   .dog-pic:hover {
-    transform: scale(1.1);
+    transform: scale(1);
+  }
+  .score {
+    margin: 12px 0;
+  }
+}
+
+@keyframes slidein {
+  from {
+    margin-left: -100%;
+  }
+
+  to {
+    margin-left: 130%;
+  }
+}
+
+@keyframes slidein2 {
+  from {
+    margin-bottom: 50px;
+    margin-left: -100%;
+  }
+
+  to {
+    margin-bottom: 50px;
+    margin-left: 130%;
+  }
+}
+
+@keyframes slidein3 {
+  from {
+    margin-bottom: 150px;
+    margin-left: -100%;
+  }
+
+  to {
+    margin-bottom: 150px;
+    margin-left: 130%;
   }
 }

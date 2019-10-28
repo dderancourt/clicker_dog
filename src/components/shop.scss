@@ -3,7 +3,9 @@ $hover-color: rgba(245, 186, 131, 0.493);
 .shop {
   width: 100%;
   font-family: "VT323", monospace;
-
+  background-color: #eadea6;
+  background-image: url("/dog-background.jpg");
+  z-index: 3;
   div {
     height: 13vh;
 
@@ -16,6 +18,7 @@ $hover-color: rgba(245, 186, 131, 0.493);
       align-items: center;
       margin: 0;
       padding: 0;
+      background-color: #eadea6;
       p {
         margin-left: 20%;
         font-size: 30px;

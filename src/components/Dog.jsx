@@ -28,8 +28,10 @@ class Dog extends React.Component {
   render() {
     return (
       <div className="dog">
-        <div>you have {Math.round(this.props.love)} loves</div>
-        <div>you generate {this.props.lovePerSecond} loves per second</div>
+        <div className="score">
+          <p>you have {Math.round(this.props.love)} loves</p>
+          <p>you generate {this.props.lovePerSecond} loves per second</p>
+        </div>
         <img
           className="dog-pic"
           src="breathingDog.gif"
@@ -39,6 +41,9 @@ class Dog extends React.Component {
         <audio className="audio">
           <source src="bark.wav"></source>
         </audio>
+        <img className="running-dog" src="running-dog.gif" alt="dog" />
+        <img className="running-dog2" src="running-dog.gif" alt="dog" />
+        <img className="running-dog3" src="running-dog.gif" alt="dog" />
       </div>
     );
   }

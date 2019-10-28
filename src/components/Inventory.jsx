@@ -22,6 +22,9 @@ class Inventory extends React.Component {
           <p>{this.props.inventory.slave_cat} slave cats</p>
           <p>{this.props.inventory.parc} parc</p>
         </div>
+        <div className="bottom-inventory-pic">
+          <img src="swimming-dog.gif" alt="dog"></img>
+        </div>
       </div>
     );
   }
