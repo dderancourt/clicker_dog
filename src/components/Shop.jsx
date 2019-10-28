@@ -10,26 +10,47 @@ class Shop extends React.Component {
     return (
       <div className="shop">
         <div id="food">
-          <button onClick={this.props.getFoodFromShop}>Buy food</button>
+          <button onClick={this.props.getFoodFromShop}>
+            <img src="food.png" alt="" />
+            <p>
+              Buy food (100 <img src="heartIcon.png"></img>)
+            </p>
+          </button>
         </div>
         <div id="toy">
-          <button onClick={this.props.getToyFromShop}>Buy toy</button>
+          <button onClick={this.props.getToyFromShop}>
+            <p>
+              Buy toy (1 000 <img src="heartIcon.png"></img>)
+            </p>
+          </button>
         </div>
         <div id="basket">
-          <button onClick={this.props.getBasketFromShop}>Buy basket</button>
+          <button onClick={this.props.getBasketFromShop}>
+            <p>
+              Buy basket (6 000 <img src="heartIcon.png"></img>)
+            </p>
+          </button>
         </div>
         <div id="female-dog">
           <button onClick={this.props.getFemaleDogFromShop}>
-            Buy female dog
+            <p>
+              Buy female dog (20 000 <img src="heartIcon.png"></img>)
+            </p>
           </button>
         </div>
         <div id="slave-cat">
           <button onClick={this.props.getSlaveCatFromShop}>
-            Buy slave cat
+            <p>
+              Buy slave cat (100 000 <img src="heartIcon.png"></img>)
+            </p>
           </button>
         </div>
         <div id="parc">
-          <button onClick={this.props.getParcFromShop}>Buy Parc</button>
+          <button onClick={this.props.getParcFromShop}>
+            <p>
+              Buy Parc (500 000 <img src="heartIcon.png"></img>)
+            </p>
+          </button>
         </div>
       </div>
     );
