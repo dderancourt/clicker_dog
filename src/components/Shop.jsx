@@ -13,7 +13,8 @@ class Shop extends React.Component {
           <button onClick={this.props.getFoodFromShop}>
             <img src="food.png" alt="food" />
             <p>
-              Buy food (100 <img src="heartIcon.png" alt="heart"></img>)
+              Buy food ({this.props.priceOfFood}{" "}
+              <img src="heartIcon.png" alt="heart"></img>)
             </p>
           </button>
         </div>
