@@ -29,8 +29,20 @@ class Dog extends React.Component {
     return (
       <div className="dog">
         <div className="score">
-          <p>you have {Math.round(this.props.love)} loves</p>
-          <p>you generate {this.props.lovePerSecond} loves per second</p>
+          <p>
+            you have{" "}
+            {new Intl.NumberFormat("fr", {
+              notation: "compact"
+            }).format(Math.round(this.props.love))}{" "}
+            loves
+          </p>
+          <p>
+            you generate{" "}
+            {new Intl.NumberFormat("fr", {
+              notation: "compact"
+            }).format(this.props.lovePerSecond)}{" "}
+            loves per second
+          </p>
         </div>
         <img
           className="dog-pic"

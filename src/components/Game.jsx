@@ -8,15 +8,15 @@ class Game extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      love: 100,
+      love: 0,
       lovePerSecond: 0,
       price: {
         food: 100,
-        toy: 1000,
-        basket: 6000,
-        female_dog: 20000,
-        slave_cat: 100000,
-        parc: 500000
+        toy: 3000,
+        basket: 50000,
+        female_dog: 600000,
+        slave_cat: 20000000,
+        parc: 100000000
       },
       inventory: {
         food: 0,
@@ -30,13 +30,13 @@ class Game extends React.Component {
   }
 
   getFoodFromShop = () => {
-    if (this.state.love >= 100) {
+    if (this.state.love >= this.state.price.food) {
       this.setState({
-        love: this.state.love - 100,
+        love: this.state.love - this.state.price.food,
         lovePerSecond: this.state.lovePerSecond + 1,
         price: {
           ...this.state.price,
-          food: this.state.price.food + (this.state.price.food * 0, 15)
+          food: this.state.price.food + this.state.price.food * 0.15
         },
         inventory: {
           ...this.state.inventory,
@@ -47,13 +47,13 @@ class Game extends React.Component {
   };
 
   getToyFromShop = () => {
-    if (this.state.love >= 1000) {
+    if (this.state.love >= this.state.price.toy) {
       this.setState({
         price: {
           ...this.state.price,
-          toy: this.state.price.toy + (this.state.price.toy * 0, 15)
+          toy: this.state.price.toy + this.state.price.toy * 0.15
         },
-        love: this.state.love - 1000,
+        love: this.state.love - this.state.price.toy,
         lovePerSecond: this.state.lovePerSecond + 10,
         inventory: {
           ...this.state.inventory,
@@ -64,13 +64,13 @@ class Game extends React.Component {
   };
 
   getBasketFromShop = () => {
-    if (this.state.love >= 6000) {
+    if (this.state.love >= this.state.price.basket) {
       this.setState({
         price: {
           ...this.state.price,
-          basket: this.state.price.basket + (this.state.price.basket * 0, 15)
+          basket: this.state.price.basket + this.state.price.basket * 0.15
         },
-        love: this.state.love - 6000,
+        love: this.state.love - this.state.price.basket,
         lovePerSecond: this.state.lovePerSecond + 50,
         inventory: {
           ...this.state.inventory,
@@ -81,14 +81,14 @@ class Game extends React.Component {
   };
 
   getFemaleDogFromShop = () => {
-    if (this.state.love >= 20000) {
+    if (this.state.love >= this.state.price.female_dog) {
       this.setState({
         price: {
           ...this.state.price,
           female_dog:
-            this.state.price.female_dog + (this.state.price.female_dog * 0, 15)
+            this.state.price.female_dog + this.state.price.female_dog * 0.15
         },
-        love: this.state.love - 20000,
+        love: this.state.love - this.state.price.female_dog,
         lovePerSecond: this.state.lovePerSecond + 100,
         inventory: {
           ...this.state.inventory,
@@ -99,14 +99,14 @@ class Game extends React.Component {
   };
 
   getSlaveCatFromShop = () => {
-    if (this.state.love >= 100000) {
+    if (this.state.love >= this.state.price.slave_cat) {
       this.setState({
         price: {
           ...this.state.price,
           slave_cat:
-            this.state.price.slave_cat + (this.state.price.slave_cat * 0, 15)
+            this.state.price.slave_cat + this.state.price.slave_cat * 0.15
         },
-        love: this.state.love - 100000,
+        love: this.state.love - this.state.price.slave_cat,
         lovePerSecond: this.state.lovePerSecond + 500,
         inventory: {
           ...this.state.inventory,
@@ -117,13 +117,13 @@ class Game extends React.Component {
   };
 
   getParcFromShop = () => {
-    if (this.state.love >= 500000) {
+    if (this.state.love >= this.state.price.parc) {
       this.setState({
         price: {
           ...this.state.price,
-          parc: this.state.price.parc + (this.state.price.parc * 0, 15)
+          parc: this.state.price.parc + this.state.price.parc * 0.15
         },
-        love: this.state.love - 500000,
+        love: this.state.love - this.state.price.parc,
         lovePerSecond: this.state.lovePerSecond + 10000,
         inventory: {
           ...this.state.inventory,
@@ -161,10 +161,15 @@ class Game extends React.Component {
         <Shop
           priceOfFood={this.state.price.food}
           getFoodFromShop={this.getFoodFromShop}
+          priceOfToy={this.state.price.toy}
           getToyFromShop={this.getToyFromShop}
+          priceOfBasket={this.state.price.basket}
           getBasketFromShop={this.getBasketFromShop}
+          priceOfFemale_Dog={this.state.price.female_dog}
           getFemaleDogFromShop={this.getFemaleDogFromShop}
+          priceOfSlave_Cat={this.state.price.slave_cat}
           getSlaveCatFromShop={this.getSlaveCatFromShop}
+          priceOfParc={this.state.price.parc}
           getParcFromShop={this.getParcFromShop}
         />
         <Dog

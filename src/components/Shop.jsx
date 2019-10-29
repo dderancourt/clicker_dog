@@ -13,7 +13,10 @@ class Shop extends React.Component {
           <button onClick={this.props.getFoodFromShop}>
             <img src="food.png" alt="food" />
             <p>
-              Buy food ({this.props.priceOfFood}{" "}
+              Buy food (
+              {new Intl.NumberFormat("fr", {
+                notation: "compact"
+              }).format(this.props.priceOfFood)}{" "}
               <img src="heartIcon.png" alt="heart"></img>)
             </p>
           </button>
@@ -22,7 +25,11 @@ class Shop extends React.Component {
           <button onClick={this.props.getToyFromShop}>
             <img src="bone.png" alt="toy" />
             <p>
-              Buy toy (1 000 <img src="heartIcon.png" alt="heart"></img>)
+              Buy toy (
+              {new Intl.NumberFormat("fr", {
+                notation: "compact"
+              }).format(this.props.priceOfToy)}{" "}
+              <img src="heartIcon.png" alt="heart"></img>)
             </p>
           </button>
         </div>
@@ -30,7 +37,11 @@ class Shop extends React.Component {
           <button onClick={this.props.getBasketFromShop}>
             <img src="basket.png" alt="basket" />
             <p>
-              Buy basket (6 000 <img src="heartIcon.png" alt="heart"></img>)
+              Buy basket (
+              {new Intl.NumberFormat("fr", {
+                notation: "compact"
+              }).format(this.props.priceOfBasket)}{" "}
+              <img src="heartIcon.png" alt="heart"></img>)
             </p>
           </button>
         </div>
@@ -38,8 +49,11 @@ class Shop extends React.Component {
           <button onClick={this.props.getFemaleDogFromShop}>
             <img src="female-dog.gif" alt="female dog" />
             <p>
-              Buy female dog (20 000 <img src="heartIcon.png" alt="heart"></img>
-              )
+              Buy female dog (
+              {new Intl.NumberFormat("fr", {
+                notation: "compact"
+              }).format(this.props.priceOfFemale_Dog)}
+              <img src="heartIcon.png" alt="heart"></img>)
             </p>
           </button>
         </div>
@@ -47,8 +61,11 @@ class Shop extends React.Component {
           <button onClick={this.props.getSlaveCatFromShop}>
             <img src="slave-cat.gif" alt="slave cat" />
             <p>
-              Buy slave cat (100 000 <img src="heartIcon.png" alt="heart"></img>
-              )
+              Buy slave cat (
+              {new Intl.NumberFormat("fr", {
+                notation: "compact"
+              }).format(this.props.priceOfSlave_Cat)}{" "}
+              <img src="heartIcon.png" alt="heart"></img>)
             </p>
           </button>
         </div>
@@ -56,7 +73,11 @@ class Shop extends React.Component {
           <button onClick={this.props.getParcFromShop}>
             <img src="park.gif" alt="park" />
             <p>
-              Buy Park (500 000 <img src="heartIcon.png" alt="heart"></img>)
+              Buy Park (
+              {new Intl.NumberFormat("fr", {
+                notation: "compact"
+              }).format(this.props.priceOfParc)}{" "}
+              <img src="heartIcon.png" alt="heart"></img>)
             </p>
           </button>
         </div>
