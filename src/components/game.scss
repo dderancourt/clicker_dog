@@ -2,6 +2,11 @@
   display: flex;
   justify-content: space-between;
   height: calc(100vh - 106px);
+  .right-container {
+    display: flex;
+    flex-direction: column;
+    z-index: 3;
+  }
   > * {
     width: 33.33%;
     border: 1px solid black;

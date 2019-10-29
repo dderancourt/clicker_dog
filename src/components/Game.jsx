@@ -2,6 +2,7 @@ import React from "react";
 import Shop from "./Shop";
 import Inventory from "./Inventory";
 import Dog from "./Dog";
+import Enhancement from "./Enhancement";
 import "./game.scss";
 
 class Game extends React.Component {
@@ -172,7 +173,10 @@ class Game extends React.Component {
           lovePerSecond={this.state.lovePerSecond}
           getClickFromDog={this.getClickFromDog}
         />
-        <Inventory inventory={this.state.inventory} />
+        <div className="right-container">
+          <Inventory inventory={this.state.inventory} />
+          <Enhancement />
+        </div>
       </div>
     );
   }

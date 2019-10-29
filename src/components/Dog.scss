@@ -1,10 +1,8 @@
-$background: #f6cd90;
-
 .dog {
   position: relative;
   display: flex;
   flex-direction: column;
-  background-color: $background;
+  background-color: #f6cd90;
   font-size: 25px;
   text-align: center;
   width: 33%;
@@ -65,12 +63,12 @@ $background: #f6cd90;
 
 @keyframes slidein2 {
   from {
-    margin-bottom: 50px;
+    margin-bottom: 75px;
     margin-left: -100%;
   }
 
   to {
-    margin-bottom: 50px;
+    margin-bottom: 75px;
     margin-left: 130%;
   }
 }
