@@ -30,18 +30,25 @@ class Dog extends React.Component {
       <div className="dog">
         <div className="score">
           <p>
-            you have{" "}
+            You have{" "}
             {new Intl.NumberFormat("fr", {
               notation: "compact"
             }).format(Math.round(this.props.love))}{" "}
             loves
           </p>
           <p>
-            you generate{" "}
+            You generate{" "}
             {new Intl.NumberFormat("fr", {
               notation: "compact"
             }).format(this.props.lovePerSecond)}{" "}
             loves per second
+          </p>
+          <p>
+            You generate{" "}
+            {new Intl.NumberFormat("fr", {
+              notation: "compact"
+            }).format(this.props.lovePerClick)}{" "}
+            loves per click
           </p>
         </div>
         <img
