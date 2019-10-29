@@ -11,6 +11,7 @@ class Game extends React.Component {
     this.state = {
       love: 0,
       lovePerSecond: 0,
+      totalLoveEver: 0,
       price: {
         food: 100,
         toy: 3000,
@@ -137,22 +138,29 @@ class Game extends React.Component {
   getClickFromDog = () => {
     let loveByClick = this.state.lovePerSecond * 0.02;
     if (loveByClick < 1) {
-      this.setState({ love: this.state.love + 1 });
+      this.setState({
+        love: this.state.love + 1,
+        totalLoveEver: this.state.totalLoveEver + 1
+      });
     } else {
       this.setState({
-        love: this.state.love + loveByClick
+        love: this.state.love + loveByClick,
+        totalLoveEver: this.state.love + loveByClick
       });
     }
   };
 
   incrementLove() {
-    let newLove = this.state.love + this.state.lovePerSecond;
-    this.setState({ love: newLove });
+    this.setState({
+      love: this.state.love + this.state.lovePerSecond,
+      totalLoveEver: this.state.totalLoveEver + this.state.lovePerSecond
+    });
   }
 
   componentDidMount() {
     setInterval(() => {
       this.incrementLove();
+      console.log(this.state.totalLoveEver);
     }, 1000);
   }
 
@@ -172,6 +180,7 @@ class Game extends React.Component {
           getSlaveCatFromShop={this.getSlaveCatFromShop}
           priceOfParc={this.state.price.parc}
           getParcFromShop={this.getParcFromShop}
+          love={this.state.love}
         />
         <Dog
           love={this.state.love}
