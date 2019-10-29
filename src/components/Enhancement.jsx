@@ -11,6 +11,26 @@ class Enhancement extends React.Component {
     return (
       <div className="enhancement">
         <h2>Enhancement</h2>
+        <div className="enhancement-list">
+          <button>
+            <p>ZIZI</p>
+          </button>
+          <button>
+            <p>ZIZI</p>
+          </button>
+          <button>
+            <p>ZIZI</p>
+          </button>
+          <button>
+            <p>ZIZI</p>
+          </button>
+          <button>
+            <p>ZIZI</p>
+          </button>
+          <button>
+            <p>ZIZI</p>
+          </button>
+        </div>
       </div>
     );
   }
