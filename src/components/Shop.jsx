@@ -4,13 +4,63 @@ import "./shop.scss";
 class Shop extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      hide: true,
+      display: {
+        food: true,
+        toy: true
+      }
+    };
+  }
+
+  hoverShop(event) {
+    let shopCase = event.target.className;
+    switch (shopCase) {
+      case "food":
+        this.setState({
+          display: {
+            ...this.state.display,
+            food: !this.state.display.food
+          }
+        });
+        break;
+      case "toy":
+        this.setState({
+          display: {
+            ...this.state.display,
+            toy: !this.state.display.toy
+          }
+        });
+        break;
+      default:
+        return;
+    }
   }
 
   render() {
     return (
       <div className="shop">
         <div id="food">
-          <button onClick={this.props.getFoodFromShop}>
+          <div
+            className="information"
+            style={
+              this.state.display.food
+                ? { display: "none" }
+                : { display: "block" }
+            }
+          >
+            <p>Gives you love with the power of food</p>
+          </div>
+          <button
+            className="food"
+            onClick={this.props.getFoodFromShop}
+            onMouseEnter={event => {
+              this.hoverShop(event);
+            }}
+            onMouseLeave={event => {
+              this.hoverShop(event);
+            }}
+          >
             <img src="food.png" alt="food" />
             <p>
               Buy food (
@@ -22,7 +72,26 @@ class Shop extends React.Component {
           </button>
         </div>
         <div id="toy">
-          <button onClick={this.props.getToyFromShop}>
+          <div
+            className="information"
+            style={
+              this.state.display.toy
+                ? { display: "none" }
+                : { display: "block" }
+            }
+          >
+            <p>Gives you love with the power of toy</p>
+          </div>
+          <button
+            className="toy"
+            onClick={this.props.getToyFromShop}
+            onMouseEnter={event => {
+              this.hoverShop(event);
+            }}
+            onMouseLeave={event => {
+              this.hoverShop(event);
+            }}
+          >
             <img src="bone.png" alt="toy" />
             <p>
               Buy toy (
