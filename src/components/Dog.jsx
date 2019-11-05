@@ -10,7 +10,7 @@ class Dog extends React.Component {
   }
 
   playAudio() {
-    const audio = document.getElementsByClassName("audio")[0];
+    const audio = new Audio("bark.wav");
     audio.play();
   }
 
@@ -57,9 +57,6 @@ class Dog extends React.Component {
           alt="Dog"
           onClick={() => this.onClickFunction()}
         />
-        <audio className="audio">
-          <source src="bark.wav"></source>
-        </audio>
         <img className="running-dog" src="running-dog.gif" alt="dog" />
         <img className="running-dog2" src="running-dog.gif" alt="dog" />
         <img className="running-dog3" src="running-dog.gif" alt="dog" />

@@ -1,3 +1,12 @@
+::-webkit-scrollbar {
+  background-color: #dff4bc;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #f6cd90;
+  border-radius: 20px;
+}
+
 #game {
   display: flex;
   justify-content: space-between;
@@ -7,7 +16,6 @@
     display: flex;
     flex-direction: column;
     overflow: auto;
-    scrollbar-color: black #f6cd90;
     z-index: 4;
   }
   > * {
