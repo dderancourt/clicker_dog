@@ -1,44 +1,23 @@
 import React from "react";
-import { ReactComponent } from "*.svg";
+import shopList from "../shopList";
 
-class ShopItem extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
+function ShopItem(props) {
+  return shopList.map(item => {
     return (
-      <div id="food">
-        <div
-          className="information"
-          style={
-            this.state.display.food ? { display: "none" } : { display: "block" }
-          }
-        >
-          <p>Gives you love with the power of food</p>
-        </div>
-        <button
-          className="food"
-          onClick={this.props.getFoodFromShop}
-          onMouseEnter={event => {
-            this.hoverShop(event);
-          }}
-          onMouseLeave={event => {
-            this.hoverShop(event);
-          }}
-        >
-          <img src="food.png" alt="food" />
+      <div id={item.name}>
+        <button onClick={`props.get${item.name}FromShop`}>
+          <img src={item.image} alt={item.name} />
           <p>
-            Buy food (
+            Buy {item.name} (
             {new Intl.NumberFormat("fr", {
               notation: "compact"
-            }).format(this.props.priceOfFood)}{" "}
+            }).format(item.price)}{" "}
             <img src="heartIcon.png" alt="heart"></img>)
           </p>
         </button>
       </div>
     );
-  }
+  });
 }
 
 export default ShopItem;

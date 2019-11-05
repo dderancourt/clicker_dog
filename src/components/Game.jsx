@@ -9,7 +9,7 @@ class Game extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      love: 0,
+      love: 10000000,
       lovePerSecond: 0,
       lovePerClick: 0,
       totalLoveEver: 0,

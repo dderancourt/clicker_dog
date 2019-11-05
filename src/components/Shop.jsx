@@ -1,19 +1,13 @@
 import React from "react";
+import ShopItem from "./ShopItem";
 import "./shop.scss";
 
 class Shop extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      hide: true,
-      display: {
-        food: true,
-        toy: true
-      }
-    };
   }
 
-  hoverShop(event) {
+  /*hoverShop(event) {
     let shopCase = event.target.className;
     switch (shopCase) {
       case "food":
@@ -35,32 +29,28 @@ class Shop extends React.Component {
       default:
         return;
     }
-  }
+  }*/
 
   render() {
     return (
       <div className="shop">
-        <div id="food">
-          <div
-            className="information"
-            style={
-              this.state.display.food
-                ? { display: "none" }
-                : { display: "block" }
-            }
-          >
-            <p>Gives you love with the power of food</p>
-          </div>
-          <button
-            className="food"
-            onClick={this.props.getFoodFromShop}
-            onMouseEnter={event => {
-              this.hoverShop(event);
-            }}
-            onMouseLeave={event => {
-              this.hoverShop(event);
-            }}
-          >
+        <ShopItem
+          priceOfFood={this.props.priceOfFood}
+          getFoodFromShop={this.props.getFoodFromShop}
+          priceOfToy={this.props.priceOfToy}
+          getToyFromShop={this.props.getToyFromShop}
+          priceOfBasket={this.props.priceOfBasket}
+          getBasketFromShop={this.props.getBasketFromShop}
+          priceOfFemale_Dog={this.props.priceOfFemale_Dog}
+          getFemaleDogFromShop={this.props.getFemaleDogFromShop}
+          priceOfSlave_Cat={this.props.priceOfSlave_Cat}
+          getSlaveCatFromShop={this.props.getSlaveCatFromShop}
+          priceOfParc={this.props.priceOfParc}
+          getParcFromShop={this.props.getParcFromShop}
+          love={this.props.love}
+        />
+        {/* <div id="food">
+          <button className="food" onClick={this.props.getFoodFromShop}>
             <img src="food.png" alt="food" />
             <p>
               Buy food (
@@ -72,26 +62,7 @@ class Shop extends React.Component {
           </button>
         </div>
         <div id="toy">
-          <div
-            className="information"
-            style={
-              this.state.display.toy
-                ? { display: "none" }
-                : { display: "block" }
-            }
-          >
-            <p>Gives you love with the power of toy</p>
-          </div>
-          <button
-            className="toy"
-            onClick={this.props.getToyFromShop}
-            onMouseEnter={event => {
-              this.hoverShop(event);
-            }}
-            onMouseLeave={event => {
-              this.hoverShop(event);
-            }}
-          >
+          <button className="toy" onClick={this.props.getToyFromShop}>
             <img src="bone.png" alt="toy" />
             <p>
               Buy toy (
@@ -166,7 +137,7 @@ class Shop extends React.Component {
           </div>
         ) : (
           ""
-        )}
+        )}*/}
       </div>
     );
   }
