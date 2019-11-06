@@ -71,15 +71,15 @@ class Dog extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    love: state.love
+    love: state.love,
+    lovePerSecond: state.lovePerSecond,
+    lovePerClick: state.lovePerClick
   };
 };
 
 const mapDispachToProps = dispatch => {
   return {
-    getClickFromDog: () => dispatch({ type: "ADD_LOVE", value: 1 })
-    /*onAgeUp: () => dispatch({ type: "AGE_UP", value: 1 }),
-    onAgeDown: () => dispatch({ type: "AGE_DOWN", value: 1 })*/
+    getClickFromDog: () => dispatch({ type: "ADD_LOVE" })
   };
 };
 

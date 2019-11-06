@@ -1,9 +1,14 @@
 import React from "react";
+import { connect } from "react-redux";
 import "./Inventory.scss";
 
 class Inventory extends React.Component {
   constructor(props) {
     super(props);
+  }
+
+  componentDidUpdate() {
+    console.log(this.props.inventory);
   }
 
   render() {
@@ -30,4 +35,10 @@ class Inventory extends React.Component {
   }
 }
 
-export default Inventory;
+const mapStateToProps = state => {
+  return {
+    inventory: { ...state.inventory }
+  };
+};
+
+export default connect(mapStateToProps)(Inventory);
