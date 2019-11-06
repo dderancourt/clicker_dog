@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 import "./Dog.scss";
 
 class Dog extends React.Component {
@@ -68,4 +69,21 @@ class Dog extends React.Component {
   }
 }
 
-export default Dog;
+const mapStateToProps = state => {
+  return {
+    love: state.love
+  };
+};
+
+const mapDispachToProps = dispatch => {
+  return {
+    getClickFromDog: () => dispatch({ type: "ADD_LOVE", value: 1 })
+    /*onAgeUp: () => dispatch({ type: "AGE_UP", value: 1 }),
+    onAgeDown: () => dispatch({ type: "AGE_DOWN", value: 1 })*/
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispachToProps
+)(Dog);

@@ -4,12 +4,12 @@ import Inventory from "./Inventory";
 import Dog from "./Dog";
 import Enhancement from "./Enhancement";
 import "./game.scss";
+import { connect } from "react-redux";
 
 class Game extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      love: 10000000,
       lovePerSecond: 0,
       lovePerClick: 0,
       totalLoveEver: 0,
@@ -182,13 +182,11 @@ class Game extends React.Component {
           getSlaveCatFromShop={this.getSlaveCatFromShop}
           priceOfParc={this.state.price.parc}
           getParcFromShop={this.getParcFromShop}
-          love={this.state.love}
+          love={this.props.love}
         />
         <Dog
-          love={this.state.love}
           lovePerSecond={this.state.lovePerSecond}
           lovePerClick={this.state.lovePerClick}
-          getClickFromDog={this.getClickFromDog}
         />
         <div className="right-container">
           <Inventory inventory={this.state.inventory} />
@@ -199,4 +197,10 @@ class Game extends React.Component {
   }
 }
 
-export default Game;
+const mapStateToProps = state => {
+  return {
+    love: state.love
+  };
+};
+
+export default connect(mapStateToProps)(Game);
