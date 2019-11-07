@@ -1,8 +1,7 @@
 import React from "react";
 import ShopItem from "./ShopItem";
-import { connect } from "react-redux";
+// import { connect } from "react-redux";
 import "./shop.scss";
-import Inventory from "./Inventory";
 
 class Shop extends React.Component {
   constructor(props) {
@@ -36,34 +35,20 @@ class Shop extends React.Component {
   render() {
     return (
       <div className="shop">
-        {/*<ShopItem
-          priceOfFood={this.props.priceOfFood}
-          getFoodFromShop={this.props.getFoodFromShop}
-          priceOfToy={this.props.priceOfToy}
-          getToyFromShop={this.props.getToyFromShop}
-          priceOfBasket={this.props.priceOfBasket}
-          getBasketFromShop={this.props.getBasketFromShop}
-          priceOfFemale_Dog={this.props.priceOfFemale_Dog}
-          getFemaleDogFromShop={this.props.getFemaleDogFromShop}
-          priceOfSlave_Cat={this.props.priceOfSlave_Cat}
-          getSlaveCatFromShop={this.props.getSlaveCatFromShop}
-          priceOfParc={this.props.priceOfParc}
-          getParcFromShop={this.props.getParcFromShop}
-          love={this.props.love}
-        />*/}
-        <div id="food">
-          <button className="food" onClick={this.props.addFoodFromShop}>
+        <ShopItem />
+        {/* <div id="food">
+          <button className="food" onClick={this.props.addItems}>
             <img src="food.png" alt="food" />
             <p>
               Buy food (
               {new Intl.NumberFormat("fr", {
                 notation: "compact"
-              }).format(this.props.price.food)}{" "}
+              }).format(this.props.items[0].price)}{" "}
               <img src="heartIcon.png" alt="heart"></img>)
             </p>
           </button>
-        </div>
-        <div id="toy">
+        </div> */}
+        {/* <div id="toy">
           <button className="toy" onClick={this.props.addToyFromShop}>
             <img src="bone.png" alt="toy" />
             <p>
@@ -139,32 +124,35 @@ class Shop extends React.Component {
           </div>
         ) : (
           ""
-        )}
+        )} */}
       </div>
     );
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    love: state.love,
-    price: { ...state.price },
-    inventory: { ...state.Inventory }
-  };
-};
+// const mapStateToProps = state => {
+//   return {
+//     love: state.love,
+//     items: { ...state.items }
+//   };
+// };
 
-const mapDispachToProps = dispatch => {
-  return {
-    addFoodFromShop: () => dispatch({ type: "ADD_FOOD" }),
-    addToyFromShop: () => dispatch({ type: "ADD_TOY" }),
-    addBasketFromShop: () => dispatch({ type: "ADD_BASKET" }),
-    addFemaleDogFromShop: () => dispatch({ type: "ADD_FEMALE_DOG" }),
-    addSlaveCatFromShop: () => dispatch({ type: "ADD_SLAVE_CAT" }),
-    addParkFromShop: () => dispatch({ type: "ADD_PARK" })
-  };
-};
+// const mapDispachToProps = dispatch => {
+//   return {
+//     addItems: () => dispatch({ type: "ADD_ITEMS", index: 0 }),
+//     addItems: () => dispatch({ type: "ADD_ITEMS" }),
+//     addItems: () => dispatch({ type: "ADD_ITEMS" }),
+//     addItems: () => dispatch({ type: "ADD_ITEMS" }),
+//     addItems: () => dispatch({ type: "ADD_ITEMS" }),
+//     addItems: () => dispatch({ type: "ADD_ITEMS" }),
+//     addItems: () => dispatch({ type: "ADD_ITEMS" })
+//     // addFoodFromShop: () => dispatch({ type: "ADD_FOOD" }),
+//     // addToyFromShop: () => dispatch({ type: "ADD_TOY" }),
+//     // addBasketFromShop: () => dispatch({ type: "ADD_BASKET" }),
+//     // addFemaleDogFromShop: () => dispatch({ type: "ADD_FEMALE_DOG" }),
+//     // addSlaveCatFromShop: () => dispatch({ type: "ADD_SLAVE_CAT" }),
+//     // addParkFromShop: () => dispatch({ type: "ADD_PARK" })
+//   };
+// };
 
-export default connect(
-  mapStateToProps,
-  mapDispachToProps
-)(Shop);
+export default Shop;

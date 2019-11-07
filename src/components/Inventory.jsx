@@ -7,10 +7,6 @@ class Inventory extends React.Component {
     super(props);
   }
 
-  componentDidUpdate() {
-    console.log(this.props.inventory);
-  }
-
   render() {
     return (
       <div className="inventory">
@@ -23,12 +19,12 @@ class Inventory extends React.Component {
           <img src="swimming-dog.gif" alt="dog"></img>
         </div>
         <div className="inventory-list">
-          <p>{this.props.inventory.food} foods</p>
-          <p>{this.props.inventory.toy} toys</p>
-          <p>{this.props.inventory.basket} baskets</p>
-          <p>{this.props.inventory.female_dog} female dogs</p>
-          <p>{this.props.inventory.slave_cat} slave cats</p>
-          <p>{this.props.inventory.parc} park</p>
+          <p>{this.props.items[0].number} foods</p>
+          <p>{this.props.items[1].number} toys</p>
+          <p>{this.props.items[2].number} baskets</p>
+          <p>{this.props.items[3].number} female dogs</p>
+          <p>{this.props.items[4].number} slave cats</p>
+          <p>{this.props.items[5].number} park</p>
         </div>
       </div>
     );
@@ -37,7 +33,7 @@ class Inventory extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    inventory: { ...state.inventory }
+    items: state.items
   };
 };
 

@@ -1,11 +1,15 @@
 import React from "react";
-import shopList from "../shopList";
+import { connect } from "react-redux";
 
 function ShopItem(props) {
-  return shopList.map(item => {
+  return props.items.map(item => {
     return (
       <div id={item.name}>
-        <button onClick={`props.get${item.name}FromShop`}>
+        <button
+          onClick={() => {
+            props.addItems(item.index);
+          }}
+        >
           <img src={item.image} alt={item.name} />
           <p>
             Buy {item.name} (
@@ -20,4 +24,19 @@ function ShopItem(props) {
   });
 }
 
-export default ShopItem;
+const mapStateToProps = state => {
+  return {
+    items: state.items
+  };
+};
+
+const mapDispachToProps = dispatch => {
+  return {
+    addItems: index => dispatch({ type: "ADD_ITEMS", index: index })
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispachToProps
+)(ShopItem);

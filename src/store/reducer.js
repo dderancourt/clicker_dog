@@ -3,84 +3,75 @@ const initialState = {
   lovePerSecond: 0,
   lovePerClick: 0,
   totalLoveEver: 0,
-  price: {
-    food: 100,
-    toy: 3000,
-    basket: 50000,
-    female_dog: 600000,
-    slave_cat: 20000000,
-    park: 100000000
-  },
-  inventory: {
-    food: 0,
-    toy: 0,
-    basket: 0,
-    female_dog: 0,
-    slave_cat: 0,
-    park: 0
-  }
+  items: [
+    {
+      name: "food",
+      price: 100,
+      modifier: 1,
+      number: 0,
+      image: 'food.png',
+      index: 0
+    },
+    {
+      name: "toy",
+      price: 3000,
+      modifier: 10,
+      number: 0,
+      image: 'bone.png',
+      index: 1
+    },
+    {
+      name: "basket",
+      price: 50000,
+      modifier: 50,
+      number: 0,
+      image: 'basket.png',
+      index: 2
+    },
+    {
+      name: "female_dog",
+      price: 600000,
+      modifier: 100,
+      number: 0,
+      image: 'female-dog.gif',
+      index: 3
+    },
+    {
+      name: "slave_cat",
+      price: 20000000,
+      modifier: 500,
+      number: 0,
+      image: 'slave-cat.gif',
+      index: 4
+    },
+    {
+      name: "park",
+      price: 100000000,
+      modifier: 10000,
+      number: 0,
+      image: 'park.gif',
+      index: 5
+    }]
+
 };
 
 const reducer = (state = initialState, action) => {
-  const newState = {
-    ...state
-  };
+  const newState = JSON.parse(JSON.stringify(state));
   switch (action.type) {
     case ("INCREMENT_LOVE"):
-      newState.love = newState.love + newState.lovePerSecond;
-      newState.totalLoveEver = newState.totalLoveEver + newState.lovePerSecond
+      newState.love += newState.lovePerSecond;
+      newState.totalLoveEver += newState.lovePerSecond
       break;
     case ("ADD_LOVE"):
       newState.love++;
       break;
-    case ("ADD_FOOD"):
-      if (newState.love >= newState.price.food) {
-        newState.love = newState.love - newState.price.food;
-        newState.lovePerSecond = newState.lovePerSecond + 1;
-        newState.price.food = newState.price.food + newState.price.food * 0.15;
-        newState.inventory.food = newState.inventory.food + 1
+    case ("ADD_ITEMS"):
+      if (newState.love >= newState.items[action.index].price) {
+        newState.love -= newState.items[action.index].price;
+        newState.lovePerSecond += newState.items[action.index].modifier;
+        newState.items[action.index].price += newState.items[action.index].price * 0.15;
+        newState.items[action.index].number++;
       }
-      break;
-    case ("ADD_TOY"):
-      if (newState.love >= newState.price.toy) {
-        newState.love = newState.love - newState.price.toy;
-        newState.lovePerSecond = newState.lovePerSecond + 10;
-        newState.price.toy = newState.price.toy + newState.price.toy * 0.15;
-        newState.inventory.toy = newState.inventory.toy + 1
-      }
-      break;
-    case ("ADD_BASKET"):
-      if (newState.love >= newState.price.basket) {
-        newState.love = newState.love - newState.price.basket;
-        newState.lovePerSecond = newState.lovePerSecond + 50;
-        newState.price.basket = newState.price.basket + newState.price.basket * 0.15;
-        newState.inventory.basket = newState.inventory.basket + 1
-      }
-      break;
-    case ("ADD_FEMALE_DOG"):
-      if (newState.love >= newState.price.female_dog) {
-        newState.love = newState.love - newState.price.female_dog;
-        newState.lovePerSecond = newState.lovePerSecond + 100;
-        newState.price.female_dog = newState.price.female_dog + newState.price.female_dog * 0.15;
-        newState.inventory.female_dog = newState.inventory.female_dog + 1
-      }
-      break;
-    case ("ADD_SLAVE_CAT"):
-      if (newState.love >= newState.price.slave_cat) {
-        newState.love = newState.love - newState.price.slave_cat;
-        newState.lovePerSecond = newState.lovePerSecond + 500;
-        newState.price.slave_cat = newState.price.slave_cat + newState.price.slave_cat * 0.15;
-        newState.inventory.slave_cat = newState.inventory.slave_cat + 1
-      }
-      break;
-    case ("ADD_PARK"):
-      if (newState.love >= newState.price.park) {
-        newState.love = newState.love - newState.price.park;
-        newState.lovePerSecond = newState.lovePerSecond + 10000;
-        newState.price.park = newState.price.park + newState.price.park * 0.15;
-        newState.inventory.park = newState.inventory.park + 1
-      }
-      break;
     default:
   }
   return newState;
