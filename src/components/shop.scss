@@ -6,6 +6,12 @@ $hover-color: rgba(245, 186, 131, 0.493);
   background-color: #eadea6;
   background-image: url("/dog-background.jpg");
   z-index: 3;
+  .information {
+    position: absolute;
+    left: 33.5%;
+    background-color: grey;
+    border: 1px solid;
+  }
   div {
     height: 13vh;
 
