@@ -21,7 +21,7 @@ class Dog extends React.Component {
       this.setState({ canPlayAudio: false });
       setTimeout(() => {
         this.setState({ canPlayAudio: true });
-      }, 1500);
+      }, 2000);
       this.playAudio();
     }
   }

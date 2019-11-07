@@ -11,9 +11,16 @@ class Game extends React.Component {
     super(props);
   }
 
+  changeTitle() {
+    document.title = `${new Intl.NumberFormat("fr", {
+      notation: "compact"
+    }).format(Math.round(this.props.love))} Clicker Dog`;
+  }
+
   componentDidMount() {
     setInterval(() => {
       this.props.incrementLove();
+      this.changeTitle();
     }, 1000);
   }
 
