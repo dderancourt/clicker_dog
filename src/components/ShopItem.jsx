@@ -32,7 +32,7 @@ const mapStateToProps = state => {
 
 const mapDispachToProps = dispatch => {
   return {
-    addItems: index => dispatch({ type: "ADD_ITEMS", index: index })
+    addItems: index => dispatch({ type: "BUY_ITEMS", index: index })
   };
 };
 

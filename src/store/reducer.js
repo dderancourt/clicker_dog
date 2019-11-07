@@ -65,7 +65,7 @@ const reducer = (state = initialState, action) => {
     case ("ADD_LOVE"):
       newState.love++;
       break;
-    case ("ADD_ITEMS"):
+    case ("BUY_ITEMS"):
       if (newState.love >= newState.items[action.index].price) {
         newState.love -= newState.items[action.index].price;
         newState.lovePerSecond += newState.items[action.index].modifier;
